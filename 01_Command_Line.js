@@ -83,3 +83,81 @@
 
 //----- (03) - (VIM Exercise)
 
+
+// in case you get lose :-
+
+// cd .. => move up one directory
+
+// pwd => print working directory
+
+// clear => clear terminal output
+
+// ctrl + c => exit program
+
+// cd ~ => navigate to home directory
+
+
+// (VIM)
+
+/* 
+insert mode =>       Text editing    (inserting text into the file & modifying some way)
+
+normal mode =>       Primary mode    (baseline when you open Vim)
+
+command mode =>      searching saving exiting    (searching, saving, actually exiting) */
+
+
+/*
+insert mode =>      i
+
+normal mode =>      ESC
+
+command mode =>     :
+
+
+/*
+Navigate to your home directory
+Make a directory called "temp"
+Open a file named "test" with vi
+write a few lines
+save and exit  (:wq) */
+
+
+
+//----- (04) - (Shell Exercise)
+
+// Shells :-
+
+/* 
+SHow your current shell :-
+echo $0
+echo $SHELL     */
+
+
+/*
+zsh - more extensible version of bash
+
+~/.zshrc    */
+
+
+/*
+bash - Bourne again shell
+
+~/.bash_profile     */
+
+
+/*
+Reload shell
+
+soucce <shell config location>
+
+
+// Shell configuarion
+
+/*
+Open your shell config
+add aline to make your shell tell you good morning  */
+
+
+
+//----- (05) - (Shell Solution)
