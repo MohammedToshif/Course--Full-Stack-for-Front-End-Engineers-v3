@@ -161,3 +161,10 @@ add aline to make your shell tell you good morning  */
 
 
 //----- (05) - (Shell Solution)
+
+
+// temp cd ..
+
+// ~ echo $0        // -zsh
+
+// ~ vi ~/.zshrc
