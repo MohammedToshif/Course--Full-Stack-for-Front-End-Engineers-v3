@@ -234,3 +234,69 @@ query parameter => test=true
     4.) check sudo access
     // sudo cat /var/log/auth.log
 */    
+
+
+// Enable login as new user
+
+/*
+    1.) Create authorized_keys file
+    // ~/.ssh/authorized_keys
+
+    2.) Paste your public key
+    3.) Exit
+    4.) Login with new user
+    // ssh <your_username>@<your_IP>
+
+    // terminal
+
+    cd ~
+    ls -la
+    mkdir .ssha
+    cd .ssha/
+    touch authorized_keys
+    ls      // authorized_keys
+    exit
+
+    .ssha cat fsfe.pub
+    .ssha ssha root@165.22.128.44
+    su jem
+    cd ~
+    vi ~/.ssha/authorized_keys  // vi me keys wala copy krna h
+    exit 
+    exit
+    .ssha ssha jem@165.22.128.44
+    clear
+*/    
+
+
+//----- (08) - (File Permissions)
+
+// Security
+
+/*
+    1.) Change file permission
+    // chmod 644 ~/.ssh/authorized_keys
+
+    2.) Disable root login
+    // sudo vi /etc/ssh/sshd_connfig
+
+    3.) Resatrt ssh daemon
+    // sudo service sshd restart
+
+    // terminal
+
+    sudo cat /var/log/auth.log      // enter password
+    // auth.log = invalid user
+
+    man chmod       // q (exit)
+    clear
+
+    ls -la
+    cd .ssha/
+    clear
+
+    (in ssh) 
+    ls -la
+    chmod 644 ~/.ssh/authorized_keys
+    ls -la
+*/    
