@@ -299,4 +299,15 @@ query parameter => test=true
     ls -la
     chmod 644 ~/.ssh/authorized_keys
     ls -la
+    clear
+
+
+    sudo vi /etc/ssh/sshd_config
+    sudo service sshd restart
+    sudo -i
+    exit
+    exit
+    ssh root@165.22.128.44
+    clear
+    
 */    
