@@ -126,3 +126,85 @@ nginx flow => server, application database
     3.) install git
     // sudo apt install git
 */    
+
+
+
+//----- (02) - (Setup Proxy Pass)
+
+/*
+
+    curl https://deb.nodesource.com/setup_19.x | sudo -E bash -
+    sudo apt-get install nodejs
+    node --version      // v19.7.0
+    git
+*/
+
+
+//  applcation setup
+
+/* 
+    1.) Establish application file system
+    2.) Enable version control
+    3.) Create a node.js server
+*/
+
+/*
+    1.) Change ownership of /www
+    // sudo chown -R $USER:$USER /var/www
+
+    2.) Make an application directory
+    // mkdir /var/www/app
+
+    3.) initialize empty git repo in /app
+    // git int
+
+
+    // terminal
+
+    pwd     // /var/www
+    sudo chown -R $USER:$USER /var/www
+    mkdir /var/www/app
+    cd app
+    git init
+    touch app.js
+    npm init        press enter enter enter .....
+    ls      // app.js package.json
+*/    
+
+/*
+    // Basic node serer
+
+    const http = require("http");
+
+    http.createServer(function (req, res) {
+        res.write("On the way to beign a full stack engineer!");
+        res.end();
+    }).listen(3000);
+
+    console.log("Server started on port 3000");
+
+
+    // terminal
+
+    vi app.js
+    
+*/    
+
+
+// Proxy pass
+
+/*
+    location / {
+        proxy_pass URL_TO_PROXY_TO;
+    }
+
+
+    1.) Create a new nginx server and proxy requests
+    // sudo vi /etc/nginx/sites-enabled/fsfe
+
+
+    // terminal
+
+    sudo vi /etc/nginx/sites-enabled/fsfe
+*/
+
