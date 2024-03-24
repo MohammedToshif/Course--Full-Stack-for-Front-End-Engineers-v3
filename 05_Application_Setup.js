@@ -208,3 +208,130 @@ nginx flow => server, application database
     sudo vi /etc/nginx/sites-enabled/fsfe
 */
 
+
+
+//----- (03) - (Virtual Server & PM2)
+
+
+// terminal
+
+/*
+    sudo vi /etc/nginx/sites-enabled/fsfe
+
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+
+        index index.html;
+
+
+server_name jemstack.lol;
+
+location / {
+
+        proxy_pass http://127.0.0.1:3000;
+        }
+
+    }
+    
+    
+    // nginx -t
+*/
+
+
+/*
+    // proxy pass
+
+    1.) Point nginx to new server
+    // sudo vi /etc/nginx/nginx.conf
+
+    ##
+    # vitual Host Configs
+    ##
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/fsfe;
+    nginx -t
+    sudo nginx -t
+    sudo service nginx restart
+
+    // then check on browser    // 127.0.0.1
+    out ;- 502 Bad Gateway
+
+
+    clear
+
+    in directory (/var/www/app)
+
+    node app.js     // server started on port 3000
+
+    then go to browser and refresh
+    output :- on the way to begin a full stack engineer!
+
+*/    
+
+
+
+// PM2
+
+/*
+
+// pm2 :- is gonna keep our node application up and running even if we close the shell, or even if we close the exit the terminal.
+
+    1.) install PM2
+    // sudo npm i pm2 -g
+
+    2.) start PM2
+    // pm2 start app.js -watch
+
+    3.) setup auto restart
+    // pm2 save
+    // pm2 startup
+
+    output => (2)
+
+    _/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+ _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+  _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+   _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+     _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+      _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+       _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+        _\///______________\///______________\///__\///////////////__
+
+
+    
+        pm2 list
+
+        pm2 start app.js
+        output :-
+
+        PM2] Starting /var/www/app/app.js in fork_mode (1 instance)
+[PM2] Done.
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ app                │ fork     │ 0    │ online    │ 0%       │ 40.6mb   
+
+
+        pm2 list
+        output :-
+
+        toshif@toshif-Inspiron-15-3511:/var/www/app$ pm2 list
+┌────┬────────────────────┬──────────┬──────┬───────────┬──────────┬──────────┐
+│ id │ name               │ mode     │ ↺    │ status    │ cpu      │ memory   │
+├────┼────────────────────┼──────────┼──────┼───────────┼──────────┼──────────┤
+│ 0  │ app                │ fork     │ 0    │ online    │ 0%       │ 50.6mb   │
+└────┴────────────────────┴──────────┴──────┴───────────┴──────────┴──────────┘
+
+
+        pm2 save
+
+        pm2 startup
+
+        copy command of two lines and pase then enter
+        complete :)
+*/    
