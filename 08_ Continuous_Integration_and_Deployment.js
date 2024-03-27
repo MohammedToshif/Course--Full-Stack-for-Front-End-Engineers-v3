@@ -90,4 +90,170 @@
     cd /var/www/app
     vi test.sh
     which bash      /usr/bin/bash
-    vi test.sh
+    vi test.sh      // enter your name
+
+    rm test.sh
+    vi github.sh
+    chmod 777 github.sh
+    ./github.sh
+*/
+
+
+// cron
+
+
+/*
+=> cron job it's just a timer and the thing to execute on whatever cadence you want.
+
+    minute              day  
+       |       day     (week)
+       |     (month)      |
+       *   *    *     *   *    sh /path/to/script
+           |    |               |
+           |  month             |
+           |                   use
+          hour                 bash
+
+          1.) SHows cronjobs
+        //   crontab -e
+
+
+visit website => crontab.guru :-
+
+“At every 10th minute on Tuesday in April.”
+ at 2024-04-02 00:00:00
+
+//  */ 10 * * 4 2        
+
+
+// terminal
+
+/*
+    crontab -e
+    press 2 and enter
+    inside
+    * * * * *   :wq
+    sudo cat /var/log/syslog
+
+    // generally syslog is captures most of what you're doing.
+    sudo tail -f /var/log/syslog
+
+    pwsd
+    pwd
+    clear
+
+    vi github.sh
+    crontab -e
+    sudo tail -f /var/log/syslog
+*/
+
+
+//----- (03) - (Logging, Streams, & Redirection)
+
+// Diving into your terminal
+
+/*
+    => Logs and how to read them
+    => standard streams
+    => Redirection
+    => Finding things
+*/
+
+// /var/log/
+/*
+    1.) syslog
+    2.) auth.log
+    3.) nginx/access.log
+
+    tail => output the last part of a file
+    head => output the first part of a file
+    less => output one page at time
+    cat => output entire file
+
+    1.) follow the output of a file
+    // tail -f
+*/
+
+// standard streams
+/*
+    standard output
+     stdout
+
+    standard input
+     stdin
+     
+    standard error
+     stderr
+*/
+
+// Redirection
+
+/*
+    |
+    read from stdout
+
+    >
+    write stdout to file
+
+    >>
+    append stdout to file
+
+    <
+    ead from stdin
+
+    2>&1
+    redirect both stderr and stdout
+
+    // terminal
+
+    echo hello > foo
+    cat foo     // hello
+    echo hole > foo
+    cat foo     // hole
+    echo hola > foo
+    cat foo     // hola
+    echo hello >> foo
+    cat foo     // hola hello
+*/    
+
+
+
+//----- (04) - (find & grep)
+
+// find things
+/*
+    find            find - search file names
+
+    grep            grep - search file contents
+*/
+
+
+/*
+    // find
+
+    $ find  /bar  -name  foo.txt
+
+    find = find
+    /bar = directory
+    -name = option
+    foo.txt = file/folder
+
+    => find all log files in /var/log/
+    => find all directiries with the name log
+
+    1.) find all log files in /var/log
+    // find /var/log -type f -name "*.log"
+
+    2.) find all directories with the name log
+    // find / -type d -name log
+
+    // terminal
+    1.) => ....
+    sudo !!     // (shorthand)
+
+    find / -type d log
+    find / -type d -name log
+    sudo !!
+*/    
+
+
