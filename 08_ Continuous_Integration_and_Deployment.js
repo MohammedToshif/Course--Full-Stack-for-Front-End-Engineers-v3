@@ -257,3 +257,110 @@ visit website => crontab.guru :-
 */    
 
 
+// Grep :- is looking inside, find will jus give you the files, bt grep looks inside the file.
+
+/*
+    $ grep -i 'jem' /var/www
+
+    grep => grep
+    -i => options
+    'jem' => search expresssin
+    /var/www => directory
+
+    // $ zgrep FILE    search inside gzip file
+
+
+    1.) Find running node processes
+    //  ps aux | grep node
+*/
+
+
+
+//----- (05) - (Nginx Redirection & Gzip)
+
+// Nginx
+/*
+    => Nginx redirection
+    => Gzip
+    => Subdomains
+*/    
+
+// Redirect
+/*
+    location /help {
+        return 301 https://developer.mozilla.org/en-US/;
+    }
+*/
+
+
+// Gzip :- Gzip is a compression algorithm that is run on Nginx, that compresses things.
+
+/*
+    ##
+    # Gzip Settings
+    ##
+
+    gzip on;
+
+    # gzip_vary on;
+    # gzip_promixed any;
+    # gzip_comp_level 6;
+    # gzip_buffers 16 8k;
+    # gzip_http_versio 1.1;
+
+    //  /etc/nginx/nginx.conf
+
+
+    00001110100000
+    
+    4 = 0
+    3 = 1
+    1 = 0
+    1 = 1
+    5 = 0
+
+    compression always has a fixed output, and it's going to be a small as possible.
+
+    hashing we don't actually care about the size as much.
+
+    spotify and youtube all on the compression work
+    MP3 is what a compression of WAV file.
+*/    
+
+
+
+//----- (06) - (Subdomains)
+
+// subdomain :- it's a subset of main domain, but it's much easier to work with.
+
+/*
+    1.) Create a subdomain called "blog"
+        a) Create an A record
+        b) Create a server
+    
+    2.) Update nginx.conf
+    3.) Restart nginx        
+*/
+
+// SUbdomain
+
+/*
+    server {
+        listen 80;
+        listen [::]:80;
+        server_name blog.<your_domain>;
+
+        location / {
+            proxy_pass http://localhost:3000
+        }
+    }
+    
+
+    // terminal
+
+    sudo vi /etc/nginx/sites-enabled/blog.fsfe
+    sudo vi /etc/nginx/nginx.conf
+    sudo service nginx restart
+    sudo nginx -t
+    on browser (blog.jemstack.lol)  error show ho rhi h (out painding)
+*/    
