@@ -123,7 +123,7 @@ visit website => crontab.guru :-
 “At every 10th minute on Tuesday in April.”
  at 2024-04-02 00:00:00
 
-//  */ 10 * * 4 2        
+//   10 * * 4 2  */      
 
 
 // terminal
