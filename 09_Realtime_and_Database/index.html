@@ -1,1 +1,16 @@
-websocket example
+<!-- websocket example -->
+
+<!-- //----- (03) - (Creating a Websocket Connection) -->
+
+<html>
+    <head></head>
+    <body></body>
+    
+    <script>
+        let ws;
+        const proto = window.location.protocol === 'https:' ? 'wss' : 'ws';
+        ws = new WebSocket(`${proto}://${window.location.host}`);
+
+        ws.onmessage = (event) => {console.log(event.data)};
+    </script>
+</html>
