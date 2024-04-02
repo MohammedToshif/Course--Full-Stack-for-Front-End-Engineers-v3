@@ -122,3 +122,159 @@ Exercise : websocket
              
 
         //----- (06) - (HTTPS Overview)
+
+        // HTTP :- The Hypertext Transfer Protocol (HTTP) is the foundation of the World Wide Web, and is used to load webpages using hypertext links. HTTP is an application layer protocol designed to transfer information between networked devices and runs on top of other layers of the network protocol stack.
+
+        /*
+            => HTTP
+            => Headers
+            => Status codes
+            => HTTPS
+            => Certificates
+            => HTTP/*
+
+            // HTTP - hypertext transport protocol
+
+            request -------> response
+                    <-------
+
+        // request
+
+        GET / HTTP/1.1
+        Host: jemyoung.com
+        User_agent: Mozilla/5.0 (Macintosh; Intel
+        Mac OS X 10_14_5) AppleWebKit/537.36
+        (KHTML, like Gecko) Chromme/76.0.3809.132
+        safari/537.36
+        Accept: text/html
+        Accept_Encoding: gzip, br
+        Accept_language: en,en-US                   
+
+        // common headers :-
+        
+        user-agent => The requesting device type
+        Accept => What the device will handle
+        Accept-language => Browser languages
+        Content-type => The type of media
+        Set-cookie => Sets stateful information
+        X-  => typically used for custom headers
+
+        // response :-
+
+        HTTP/1.1 200 OK
+        Server: nginx/1.14.0 (ubuntu)
+        Date: wed, 25 Sep 2019 02:13:13 GMT
+        Content-Type: text/html; charset=utf-8
+        Content-Length: 12
+
+        // Status Codes (some Common)
+
+        200  =>  OK
+        301  =>  Moved permanently
+        302  =>  Found (temprory redirect)
+        401  =>  Not authorized
+        500  =>  Internal server error
+
+        status code :- indicates status of an http request
+
+        1xx  =>  Information
+        2xx  =>  Success
+        3xx  =>  Redirect
+        4xx  =>  Client error
+        5xx  =>  Server errror
+
+        Q.) What is the proper status code for a successful POST request?
+        ans)=>  201 (created succesfully)
+
+
+        // HTTPS :-
+
+        1.) yourwebsite.com -------> visa 4235529596901600 -------> server
+                                password 123455
+
+
+                                    EVIL server
+        2.) yourwebsite.com -------> visa 4235529596901600 -------> server                                
+
+
+
+        2.) yourwebsite.com -------> *Ifkfi24fh243&&o9#$kD#!8b -------> server
+
+       */
+      
+        
+
+        //----- (07) - (Implementing HTTPS with Certbot)
+
+        // HTTPS
+        /*
+        // Certbot is an easy-to-use client that fetches a certificate from Let's Encrypt—an open certificate authority launched by the EFF, Mozilla, and others—and deploys it to a web server.
+
+            1.) INstall and use certbot
+            2.) Open firewall
+
+            // https://certbot.eff.org/instructions
+
+            // terminal
+
+            sudo snap install core; sudo snap refresh core
+            sudo apt-get remove certbot
+            sudo snap install --classic certbot     // error - work painding
+            sudo ln -s 
+            man ln
+            sudo certbot --nginx    // enter email  Y, N
+            sudo cat /etc/nginx/sites-enabled/fsfe
+            sudo certbot renew --dry-run
+            clear
+
+            sudo ufw allow https
+            sudo ufw status
+        */
+
+
+
+        //----- (08) - (Supporting HTTP/2)
+
+        // HTTP/2
+        /*
+                            http/1.1
+        
+        main.js  ----TCP----->
+                 <------------
+                 
+        index.html  ----TCP--->         SERVER
+                <--------------
+                
+        dog.png  ----TCP------>
+                 <-------------               
+                 
+
+                            http/2
+
+        main.js
+        
+        index.html  -----TCP----->      SERVER
+                    <-------------
+        dog.png                   
+        
+        
+        method      status      protocol        scheme
+        GET         200           h2             https
+        GET         200           h2             https
+
+
+        1.) Update nginx server
+        // sudo vi /etc/nginx/sites-enabled/fsfe
+                                |
+                               \|/
+                  liisten 443 http2 ssl;
+
+
+    sudo vi /etc/nginx/sites-enabled/fsfe   // some changes in file
+    sudo nginx -t
+    sudo service nginx restart
+
+*/    
+
+
+                        
