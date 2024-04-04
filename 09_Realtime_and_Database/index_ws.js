@@ -1,21 +1,19 @@
-
 const express = require('express');
-    const server = require('http').createServer();
-    const app = express();
+const server = require('http').createServer();
+const app = express();
 
-    app.get('/', function(req, res) {
-        res.sendFile('index.html', {root: __dirname});
-    });
+app.get('/', function(req, res) {
+    res.sendFile('index.html', {root: __dirname});
+});
 
-    server.on('request', app);
-    server.listen(8080, function () { console.log('Listening on 8080'); });
+server.on('request', app);
+server.listen(8080, function() { console.log('server started on port 8080'); });
 
 
-    //----- (02) - (Using Websockets with Express)
-    
-    //----- Begin websocket 
 
-    const WebSocketServer = require('ws').Server;
+
+/** Begin websocket */
+const WebSocketServer = require('ws').Server;
 
 const wss = new WebSocketServer({server: server});
 
@@ -57,10 +55,8 @@ wss.broadcast = function broadcast(data) {
     });
 }
 
-//----- end websockets ------//
-
-//------ begin database
-
+/** end websockets */
+/** begin database */
 const sqlite = require('sqlite3');
 const db = new sqlite.Database(':memory:');
 
